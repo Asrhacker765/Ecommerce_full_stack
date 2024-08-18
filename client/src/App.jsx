@@ -1,35 +1,48 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import ProductDetail from "./pages/ProductDetail";
+import Home from "./pages/Home";
+import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
+import Checkout from "./pages/Checkout";
+import { useSelector } from "react-redux";
+import PlaceOrder from "./pages/PlaceOrder";
+import OrderConfirmation from "./pages/OrderConfirm";
+import { OrderHistory } from "./pages/OrderHistory";
 
 function App() {
-  const [count, setCount] = useState(0)
 
+  const userLoginReducer = useSelector((state) => state.userLoginReducer)
+  const {userInfo} = userLoginReducer
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Home />}></Route>
+          <Route exact path="/products/:id" element={<ProductDetail />}></Route>
+          <Route
+            exact
+            path="/login"
+            element={userInfo ? <Navigate to="/"></Navigate> : <Login />}
+          ></Route>
+          <Route
+            exact
+            path="/register"
+            element={userInfo ? <Navigate to="/"></Navigate> : <Register />}
+          ></Route>
+          <Route path="/order/:id" element={<OrderConfirmation />} />
+          <Route path="/order-history" element={<OrderHistory />} />
+
+          <Route exact path="/checkout" element={<Checkout />}></Route>
+          <Route exact path="/placeorder" element={<PlaceOrder />}></Route>
+        </Routes>
+      </Router>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

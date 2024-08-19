@@ -56,7 +56,7 @@ const Navbar = () => {
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
+                    fill="pink"
                     viewBox="0 0 24 24"
                     stroke-width="1.5"
                     stroke="currentColor"
@@ -87,7 +87,7 @@ const Navbar = () => {
                 className="w-5 h-5"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
-                fill="none"
+                fill="pink"
                 viewBox="0 0 17 14"
               >
                 <path
@@ -132,15 +132,7 @@ const Navbar = () => {
                   Home
                 </Link>
               </li>
-              <li>
-                <a
-                  href="#"
-                  className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
-                  aria-current="page"
-                >
-                  About
-                </a>
-              </li>
+              
             </ul>
           </div>
         </div>

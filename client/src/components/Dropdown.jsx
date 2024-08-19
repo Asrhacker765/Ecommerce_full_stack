@@ -1,4 +1,4 @@
-"use client";
+
 
 import { Dropdown } from "flowbite-react";
 import {Link} from "react-router-dom"

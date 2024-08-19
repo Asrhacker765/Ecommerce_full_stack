@@ -210,7 +210,7 @@ export default function PlaceOrder() {
                 </div>
 
                 <button
-                  onClick={saveShippingAddress}
+                  onClick={saveShippingAddressAction}
                   className=" mb-10 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-200"
                 >
                   Save Shipping Address
